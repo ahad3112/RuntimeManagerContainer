@@ -8,6 +8,7 @@
 enum CG_TYPE {
     WIFI,
     INTERNAL_ERROR,
+    OTHER,
 };
 
 class A {

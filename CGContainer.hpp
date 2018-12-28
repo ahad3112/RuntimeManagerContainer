@@ -12,16 +12,16 @@
 #include "B.hpp"
 #include "C.hpp"
 
-template <typename T, typename U, typename V>  class CGContainer;
+template <typename T, typename U>  class CGContainer;
 
-template <typename T, typename U, typename V> std::ostream &operator<<(std::ostream &os, const CGContainer<T,U,V> &cg) {
+template <typename T, typename U> std::ostream &operator<<(std::ostream &os, const CGContainer<T,U> &cg) {
     return os << " Derived: "<< cg.type;
 }
 
-template <typename T, typename U, typename V = std::string> class CGContainer : public CGContainerBase<V>{
-    friend std::ostream &operator<<<T,U,V>(std::ostream &os, const CGContainer<T,U,V> &cg);
+template <typename T, typename U> class CGContainer : public CGContainerBase{
+    friend std::ostream &operator<<<T,U>(std::ostream &os, const CGContainer<T,U> &cg);
 public:
-    CGContainer(T t, U u, V type) : CGContainerBase<V>(type), data(std::make_shared<std::pair<T,U>>(std::make_pair(t,u))){
+    CGContainer(T t, U u, CG_TYPE type) : CGContainerBase(type), data(std::make_shared<std::pair<T,U>>(std::make_pair(t,u))){
 
     }
 

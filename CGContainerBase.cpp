@@ -3,3 +3,8 @@
 //
 
 #include "CGContainerBase.hpp"
+
+
+std::ostream &operator<<(std::ostream &os, const CGContainerBase &cg) {
+    return os << " Base: " << cg.type;
+}

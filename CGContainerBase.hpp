@@ -8,15 +8,10 @@
 #include <iostream>
 #include "A.hpp"
 
-template <typename T> class CGContainerBase;
-template<typename T = std::string> std::ostream &operator<<(std::ostream &os, const CGContainerBase<T> &cg) {
-    return os << " Base: " << cg.type;
-}
-
-template <typename T = std::string> class CGContainerBase {
-    friend std::ostream &operator<<<T>(std::ostream &os, const CGContainerBase<T> &cg);
+class CGContainerBase {
+    friend std::ostream &operator<<(std::ostream &os, const CGContainerBase &cg);
 public:
-    CGContainerBase (T type) : type(type){
+    CGContainerBase (CG_TYPE type) : type(type){
 
     }
 
@@ -25,7 +20,7 @@ public:
     }
 
 protected:
-    T type;
+    CG_TYPE type;
 };
 
 
